@@ -1,11 +1,13 @@
 provider "aws" {
   region     = "us-east-1"
-
 }
 
 resource "aws_instance" "myec2" {
-   ami = "ami-047a51fa27710816e"
+   ami = "ami-0915bcb5fa77e4892"
    instance_type = "t2.micro"
+   #count = "1"
+  
+}
 
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
@@ -18,5 +20,4 @@ resource "aws_security_group" "allow_ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 }
